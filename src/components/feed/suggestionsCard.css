@@ -1,0 +1,78 @@
+.suggestions_item_card {
+	/* #### placement */
+	margin: 1vh 0;
+	/* #### self-properties */
+	display: flex;
+	/* #### child-properties */
+	align-items: center;
+	/* #### font-properties */
+	font-size: 0.8rem;
+	/* #### extra styling (borders, shadows, etc) */
+	border-bottom: solid 1px rgba(120, 120, 120, 0.15);
+}
+
+.suggestion_channel_pic {
+	/* #### placement */
+	/* #### self-properties */
+	/* #### child-properties */
+	/* #### font-properties */
+	/* #### extra styling (borders, shadows, etc) */
+	height: 32px;
+	width: 32px;
+	margin: 0 0 0 0;
+	padding: 4px;
+
+	object-fit: contain;
+	background-image: linear-gradient(45deg, #fc4343, #605dff 100%);
+	/* background: 0 0/150% auto; */
+	background-image: linear-gradient(to right, #084dd6 0, #0072ff 100%);
+
+	border-color: #0072ff;
+
+	font-size: 0.5rem;
+	/* font-weight: 500;
+	text-transform: uppercase;
+	color: #fff; */
+	text-align: center;
+	color: whitesmoke;
+
+	border-radius: 1vh 0;
+}
+
+.suggestion_item_details {
+	/* #### placement */
+	/* #### self-properties */
+	/* #### child-properties */
+	/* #### font-properties */
+	/* #### extra styling (borders, shadows, etc) */
+	display: flex;
+	flex: 1;
+	align-items: center;
+	margin: auto 8px auto 8px;
+}
+
+.suggestion_btn_join {
+	/* #### placement */
+	/* #### self-properties */
+	/* #### child-properties */
+	/* #### font-properties */
+	/* #### extra styling (borders, shadows, etc) */
+	padding: 2px 5px;
+	margin: 0 0 0 auto;
+	/* font-weight: 600;
+	font-size: 0.8rem; */
+	color: #4051eb;
+	border: solid 1px #4051eb;
+	border-radius: 2px;
+	/* background: linear-gradient(15deg, #4051eb, #8674fd 100%); */
+}
+
+@media only screen and (min-width: 481px) {
+	. {
+		/* #### placement */
+		/* #### self-properties */
+		/* #### child-properties */
+		/* #### font-properties */
+		/* #### extra styling (borders, shadows, etc) */
+	}
+}

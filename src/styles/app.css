@@ -1,0 +1,142 @@
+:root {
+	--nav_top_height: 60px;
+	--app_back_col_light: #d9d9d9;
+}
+
+.app {
+	text-align: center;
+	background-color: #d9d9d9;
+	min-height: 100vh;
+}
+
+.app_container {
+	margin-top: var(--nav_top_height);
+}
+
+.app_logo {
+	display: block;
+	height: 32px;
+	width: auto;
+	margin: auto 8px;
+}
+
+.nav_header {
+	height: var(--nav_top_height);
+	/* max-height: 8vh; */
+	width: 100%;
+
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	z-index: 101;
+	margin-top: 0;
+	/* margin-bottom: var(--nav_top_height); */
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #ffffff;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.searchbar {
+	/* display: block; */
+	align-self: center;
+	width: 32%;
+	min-width: 304px;
+	max-width: 560px;
+	align-self: center;
+}
+
+.search_input {
+	min-width: 320px;
+	padding: 2px 4px 2px 2vh;
+	/*font-size: 1.2rem;
+	border-radius: 16px;*/
+	/* border-width: 0px;
+	box-shadow: 0 1px 3px #0000002d; */
+}
+
+.search_prompt_container {
+	background-color: aliceblue;
+	border: solid 0.4px darkslategray;
+	border-radius: 0 0 4px 4px;
+	font-size: 0.8rem;
+}
+
+.navbar_main {
+	display: flex;
+	align-items: center;
+}
+
+.navbar_links {
+	/* width: 60%; */
+	margin: 0 2vw;
+	display: flex;
+	border-right: solid 1px #2a2a2a1a;
+}
+
+.navbar_links > li {
+	display: inline-block;
+	margin: auto 8px;
+	font-size: 1.2rem;
+	line-height: 1em;
+
+	font-variant-caps: all-petite-caps;
+	letter-spacing: 1.4px;
+}
+
+.navbar_links > li > a {
+	display: block;
+	padding: 0 8px;
+}
+
+.navbar_main > .nav_btn_login {
+	font-size: 1rem;
+	padding: 6px 12px;
+	margin-inline-end: 1vh;
+	border-radius: 3px;
+	background-color: rgb(255, 89, 71);
+	color: white;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.App-logo {
+		animation: App-logo-spin infinite 20s linear;
+	}
+}
+
+.App-header {
+	background: linear-gradient(45deg, rgb(27, 84, 255), rgb(60, 16, 255));
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+}
+
+.App-link {
+	color: #61dafb;
+}
+
+@media only screen and (min-width: 481px) {
+	.app {
+	}
+	. {
+		/* #### placement */
+		/* #### self-properties */
+		/* #### child-properties */
+		/* #### font-properties */
+		/* #### extra styling (borders, shadows, etc) */
+	}
+}
+
+@keyframes App-logo-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}

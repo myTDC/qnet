@@ -1,0 +1,46 @@
+.landing_container {
+	width: 100%;
+	min-height: 80vh;
+}
+
+.landing_header {
+	/* margin-top: var(--nav_top_height); */
+	width: 100%;
+	height: 360px;
+	display: flex;
+	justify-content: space-between;
+	box-shadow: 0 3px 6px 0 #00000029;
+	background-image: linear-gradient(102deg, #0019ff, #4a30ff 100%);
+	color: #fafafa;
+	/* border-bottom: solid 4px #0019ffbf; */
+	box-shadow: 0 2px 4px #0019ffbf;
+	/* z-index: 90; */
+}
+
+.landing_intro {
+	font-size: 4rem;
+	line-height: 1.1em;
+	text-align: start;
+	margin: auto 80px;
+	max-width: 50%;
+	font-weight: 600;
+}
+
+.landing_intro_close {
+	height: 40px;
+	width: 40px;
+	font-size: large;
+	background: none;
+	color: #fafafa;
+	justify-self: flex-end;
+}
+
+@media only screen and (min-width: 481px) {
+	. {
+		/* #### placement */
+		/* #### self-properties */
+		/* #### child-properties */
+		/* #### font-properties */
+		/* #### extra styling (borders, shadows, etc) */
+	}
+}

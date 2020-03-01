@@ -1,0 +1,21 @@
+.channel_creator_container {
+	/* margin-top: var(--nav_top_height); */
+	margin: 0 auto;
+	width: 400px;
+	padding: 2vh;
+	background-color: white;
+	box-shadow: 1px 2px 3px #2222221a;
+}
+
+.channel_crator_readme {
+	font-size: 1rem;
+}
+
+.channel_creator_steps {
+	padding: 0 2px 0 32px;
+}
+
+.channel_creator_steps > li {
+	list-style: decimal-leading-zero;
+	text-align: start;
+}

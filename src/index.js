@@ -3,8 +3,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import configureAppStore from './store';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// const store = configureAppStore();
+ReactDOM.render(
+	<React.StrictMode>
+		<Provider store={configureAppStore()}>
+			<BrowserRouter>
+				<App />
+			</BrowserRouter>
+		</Provider>
+	</React.StrictMode>,
+	document.getElementById('root')
+);
+// const rootEl = document.getElementById('root');
+// // ReactDOM.render(<App />, rootEl)
+// const root = ReactDOM.createRoot(rootEl);
+// root.render(<App />);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
