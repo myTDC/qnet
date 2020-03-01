@@ -54,28 +54,28 @@ const dummy_channels = [
 
 const ChannelCreatorForm = (props) => {
 	const dispatch = useDispatch();
-	const userId = useSelector((state) => state.user.uid);
+	const { user } = props;
 	const [channelTypeList, setChannelTypeList] = useState(dummy_channels);
 
 	return (
 		<div>
 			<ErrorBoundary FallbackComponent={ErrorFallback}>
-				<section className='post_writer'>
+				<section className='channel_creator_form'>
 					<Formik
 						initialValues={{
-							creator_id: userId,
-							type: 'text',
+							creator_id: user.uid !== null ? user.uid : '',
+							type: '',
 							name: '',
 							description: '',
 							img_src: '',
 						}}
 						validationSchema={Yup.object({
 							creator_id: Yup.string().required(),
+							type: Yup.object({ value: Yup.string().required() }),
 							name: Yup.string()
 								.min(5)
 								.required(),
 							description: Yup.string(),
-							type: Yup.object({ value: Yup.string().required() }),
 							img_src: Yup.string(),
 						})}
 						onSubmit={(values, { setSubmitting }) => {
@@ -103,80 +103,74 @@ const ChannelCreatorForm = (props) => {
 						}}>
 						{(props) => (
 							<Form>
-								<div className='post_content_main'>
+								<div className='channel_creator_main'>
+									<h4 className='channel_creator_heading'>
+										Hey {user.uid !== null ? user.nameGiven : 'user'}! Let's
+										start a discussion channel
+									</h4>
+									<Selector
+										name='type'
+										type='select'
+										className='post_input_source'
+										placeholder='Channel Category'
+										opts={channelTypeList}
+									/>
 									<FastField
-										name='post_message'
+										name='name'
+										type='text'
+										as={TextField}
+										className='post_img_src'
+										placeholder='Topic of the channel'
+									/>
+									<FastField
+										name='description'
+										rows='1'
 										as={TextareaAutosize}
 										aria-label='minimum height'
-										rowsMin={5}
 										className='post_input_area'
-										placeholder="What's on your mind?"
+										placeholder="What is this channel about? (don't worry you can change it later)"
 									/>
-								</div>
-								<div className='post_content_img'>
-									<i
-										className='material-icons'
-										style={{ fontSize: '24px', filter: 'opacity(.5)' }}>
-										add_photo_alternate
-									</i>
-									<Field
-										name='post_img_src'
-										type='text'
-										// as={TextField}
-										className='post_img_src'
-										placeholder='Got any images? https://{image_url}'
-									/>
-								</div>
-								<div className='post_writer_controls'>
-									<div className='post_writer_sourcer'>
+									<div className='channel_creator_img'>
+										<i
+											className='material-icons'
+											style={{ fontSize: '24px', filter: 'opacity(.5)' }}>
+											add_photo_alternate
+										</i>
 										<Field
+											name='img_src'
 											type='text'
-											name='post_source'
-											label='Source:'
-											size='small'
-											className='post_input_source'
-											placeholder='https://www.source.url'
 											as={TextField}
+											className='post_img_src'
+											placeholder='Got a picture for channel dp? https://{image_url}'
 										/>
 									</div>
-									<div className='post_writer_locator'>
-										{
-											//#region Custom composed Formik Field and MUI form Control + Select
-											<Selector
-												name='post_channel'
-												type='select'
-												className='post_input_source'
-												placeholder='Posting In'
-												opts={channelTypeList}
-											/>
-											//#endregion
-										}
-									</div>
+								</div>
+								<div className='channel_creator_controls'>
 									<button
-										className='post_btn_submit'
+										className='channel_creator_btn_submit'
 										disabled={!!props.isSubmitting}
 										type='submit'>
 										Post it!
 									</button>
 								</div>
-								{(props.errors.post_message || props.errors.post_channel) && (
-									<div className='post_errors'>
-										{props.errors.post_message && (
-											<p>{props.errors.post_message}</p>
+								{(props.errors.name || props.errors.type) && (
+									<ul className='channel_creator_errors'>
+										{props.errors.name && (
+											<li>> Error in channel name: {props.errors.name}</li>
 										)}
-										{props.errors.post_channel && (
-											<p>
-												Uh-oh! Looks like you forgot to select the target
-												channel for your post.
-											</p>
+										{props.errors.type && (
+											<li>
+												> Error in channel type:{' '}
+												{JSON.stringify(props.errors.type)}
+											</li>
 										)}
 										{/* {props.errors.post_message || props.errors.post_channel} */}
-									</div>
+									</ul>
 								)}
 								<ScreenDebugger
 									source='PostWriter.js > Formik props'
 									values={props}
-									isOpen={false}
+									// isOpen={false}
 								/>
 							</Form>
 						)}
@@ -192,6 +186,7 @@ ChannelCreatorForm.propTypes = {};
 // export default ChannelCreatorForm
 
 function ChannelCreator(props) {
+	const user = useSelector((state) => state.user);
 	const [isAvailable, setisAvailable] = useState(false);
 
 	console.log('ChannelCreator.js > Channel name is availaible? ', isAvailable);
@@ -200,7 +195,7 @@ function ChannelCreator(props) {
 			Hey {props.user ? props.user.nameGiven : 'user'}! I am the channel creator
 			<br />
 			<br />
-			<secttion className='channel_crator_readme'>
+			<section className='channel_crator_readme'>
 				Here's how you can create a new discussion channel.
 				<ol className='channel_creator_steps'>
 					<li>input the desired name.</li>
@@ -208,8 +203,8 @@ function ChannelCreator(props) {
 					<li>get a modal dialog to confirm the creation.</li>
 					<li>of the chose discussion channel.</li>
 				</ol>
-			</secttion>
-			<ChannelCreatorForm />
+			</section>
+			<ChannelCreatorForm user={user} />
 		</div>
 	);
 }

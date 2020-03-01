@@ -1,14 +1,18 @@
 .channel_creator_container {
 	/* margin-top: var(--nav_top_height); */
 	margin: 0 auto;
-	width: 400px;
+	width: 50%;
 	padding: 2vh;
 	background-color: white;
 	box-shadow: 1px 2px 3px #2222221a;
+	display: flex;
+	flex-direction: column;
 }
 
 .channel_crator_readme {
+	margin: 2vh 0 1vh;
 	font-size: 1rem;
+	text-align: start;
 }
 
 .channel_creator_steps {
@@ -17,5 +21,41 @@
 
 .channel_creator_steps > li {
 	list-style: decimal-leading-zero;
-	text-align: start;
+}
+
+.channel_creator_form {
+	margin: 2vh auto;
+	width: 50%;
+	max-width: 320px;
+	text-align: left;
+	padding: 2vh;
+	background-color: whitesmoke;
+	box-shadow: 2px 2px 6px rgba(34, 34, 34, 0.2);
+}
+
+.channel_creator_main {
+	display: flex;
+	flex-direction: column;
+}
+
+.channel_creator_img {
+	width: 100%;
+}
+
+.channel_creator_controls {
+	width: 100%;
+	margin: 1vh auto 1vh 0;
+}
+
+.channel_creator_btn_submit {
+	background: linear-gradient(102deg, #0019ff, #4a30ff 100%);
+	color: whitesmoke;
+	padding: 6px 16px;
+	border-radius: 3px;
+}
+
+.channel_creator_errors {
+	font-size: 0.8rem;
+	color: crimson;
+	text-align: left;
 }

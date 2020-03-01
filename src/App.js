@@ -115,7 +115,7 @@ function App() {
 				// console.log('Provider Data: ', providerData);
 				console.groupEnd();
 
-				dispatch(() => getUserData(uid, email));
+				// dispatch(getUserData(uid, email));
 			} else if (activeUser.profile_id !== null && user) {
 				console.log(
 					'App.js/onAuthStateChanged > Authenticated user:',
